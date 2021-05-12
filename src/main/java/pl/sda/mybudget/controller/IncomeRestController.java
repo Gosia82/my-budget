@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/income")
 @Controller
-public class IncomeController {
+public class IncomeRestController {
 
     @GetMapping("/all-incomes")
     public String allIncomes() {
