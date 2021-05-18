@@ -1,11 +1,11 @@
 package pl.sda.mybudget.model;
 
-public class Income {
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import pl.sda.mybudget.model.enumeration.IncomeType;
-
 import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 
