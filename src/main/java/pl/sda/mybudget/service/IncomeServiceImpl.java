@@ -2,6 +2,7 @@ package pl.sda.mybudget.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.sda.mybudget.model.Income;
 import pl.sda.mybudget.repository.IncomeRepository;
 
@@ -29,4 +30,10 @@ public class IncomeServiceImpl implements IncomeService {
         return incomeRepository.findById(idik)
                 .orElseThrow(()-> new NoSuchElementException("No income with id: " + idik));
     }
+    @Override
+    public Income saveIncome(Income incomeToSave) {
+        log.info("trying to save: [{}]", incomeToSave);
+        return incomeRepository.save(incomeToSave);
+    }
+
 }

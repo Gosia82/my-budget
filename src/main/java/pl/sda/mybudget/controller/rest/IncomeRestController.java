@@ -1,9 +1,6 @@
 package pl.sda.mybudget.controller.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.mybudget.model.Income;
 import pl.sda.mybudget.model.enumeration.IncomeType;
 import pl.sda.mybudget.service.IncomeService;
@@ -35,5 +32,10 @@ public class IncomeRestController {
     Income findById(@PathVariable("id") Long idik) {
         return incomeService.findIncomeById(idik);
 
+    }
+
+    @PostMapping
+    Income createNewIncome(@RequestBody Income incomeToSave) {
+        return incomeService.saveIncome(incomeToSave);
     }
 }

@@ -8,4 +8,6 @@ public interface IncomeService {
     List<Income> findAllIncomes();
 
     Income findIncomeById(Long idik);
+
+    Income saveIncome(Income incomeToSave);
 }
