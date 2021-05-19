@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IncomeService {
     List<Income> findAllIncomes();
+
+    Income findIncomeById(Long idik);
 }

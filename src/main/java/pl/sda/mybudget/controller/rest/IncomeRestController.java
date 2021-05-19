@@ -33,6 +33,7 @@ public class IncomeRestController {
     // /rest/incomes/n - id of income goes here
     @GetMapping("/{id}")
     Income findById(@PathVariable("id") Long idik) {
-        return null;
+        return incomeService.findIncomeById(idik);
+
     }
 }
