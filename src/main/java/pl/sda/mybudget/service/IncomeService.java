@@ -10,4 +10,8 @@ public interface IncomeService {
     Income findIncomeById(Long idik);
 
     Income saveIncome(Income incomeToSave);
+
+     public void deleteIncomeById(Long idik);
+
+    Income editIncome(Long idik);
 }
