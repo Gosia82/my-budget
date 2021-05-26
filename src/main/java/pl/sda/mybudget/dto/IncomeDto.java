@@ -1,17 +1,27 @@
 package pl.sda.mybudget.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Value;
-import pl.sda.mybudget.model.enumeration.IncomeType;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import java.time.LocalDate;
 
+// DTO - Data Transfer Object
+// dtos should be immutable
+// TODO: user Java 16's records
 @Value
 public class IncomeDto {
-     Long id;
-     long amountInPolishGrosz;
-     LocalDate incomeDate;
-     String incomeSource;
-     String incomeType;
+    @JsonProperty("idik")
+    Long id;
+
+    @JsonProperty("kwota")
+    long amountInPolishGrosz;
+
+    @JsonProperty("dzień wypłaty")
+    LocalDate incomeDate;
+
+    @JsonProperty("źródło")
+    String incomeSource;
+
+    @JsonProperty("typ")
+    String incomeType;
 }
