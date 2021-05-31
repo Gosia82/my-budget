@@ -1,9 +1,11 @@
 package pl.sda.mybudget.controller.rest;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.mybudget.dto.IncomeDto;
 import pl.sda.mybudget.service.IncomeService;
 
+import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -34,7 +36,21 @@ public class IncomeRestController {
 
     // send json to save inside request body
     @PostMapping
-    IncomeDto createNewIncome(@RequestBody IncomeDto incomeToSave) {
-        return incomeService.saveIncome(incomeToSave);
+    ResponseEntity<IncomeDto> createNewIncome(@RequestBody IncomeDto incomeToSave) {
+        var created = incomeService.saveIncome(incomeToSave);
+        return ResponseEntity.created(URI.create("/rest/incomes/" + created.getId()))
+                .body(created);
+    }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<Void> deleteIncomeById(@PathVariable("id") Long id) {
+        boolean deleted = incomeService.deleteIncomeById(id);
+
+        ResponseEntity<Void> result = ResponseEntity.notFound().build();
+        if (deleted) {
+            result = ResponseEntity.noContent().build();
+        }
+
+        return result;
     }
 }
