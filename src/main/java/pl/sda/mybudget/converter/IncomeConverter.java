@@ -23,8 +23,4 @@ public class IncomeConverter implements DataConverter<Income, IncomeDto> {
                 dto.getIncomeSource(),
                 IncomeType.valueOf(dto.getIncomeType()));
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 671e63982356c822e410f49563ba852e2fa3212a
