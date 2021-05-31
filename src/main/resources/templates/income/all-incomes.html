@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,4 +7,25 @@
 <body>
     <div>All incomes:)</div>
 </body>
+<p>My all incomes</p>
+<table>
+    <thred>
+        <tr>
+        <td>ID</td>
+        <td>Kwota w groszach</td>
+        <td>Data przychodu</td>
+        <td>Zródło</td>
+        <td>Typ</td>
+        </tr>
+    </thred>
+    <tbody>
+    <tr th:each="income: ${incomes}">
+        <td th:text="${income.getId()}">1</td>
+        <td th:text="${income.getAmountInPolishGrosz()}">100 000</td>
+        <td th:text="${income.getIncomeDate()}">2020-09-18</td>
+        <td th:text="${income.getIncomeSource()}">od Mamy</td>
+        <td th:text="${income.getIncomeType()}">MOPS</td>
+    </tr>
+    </tbody>
+</table>
 </html>
